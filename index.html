@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrir chamado Gabriel Servo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Adicione este script na seção head do seu HTML -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Abrir chamado Gabriel Servo</h1>
+
+    <form id="chamadoForm" onsubmit="submitForm(event)">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="descricao">Descrição do chamado:</label>
+        <textarea id="descricao" name="descricao" required></textarea><br>
+
+        <button type="submit">Abrir Chamado</button>
+    </form>
+
+    <p id="numeroChamado"></p>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            // Gere um número de chamado aleatório (só para fins de exemplo)
+            const numeroChamado = Math.floor(Math.random() * 100000) + 1;
+
+            // Exiba o número do chamado na página
+            document.getElementById("numeroChamado").innerText = `Chamado aberto! Número do chamado: ${numeroChamado}`;
+
+            // Aqui você chamaria uma função no lado do servidor para enviar um e-mail com as informações
+            // Como isso exige um back-end, a implementação real depende da linguagem que você está usando no servidor.
+
+            // Por exemplo (pseudocódigo):
+            // enviarEmail(document.getElementById("email").value, `Chamado aberto! Número do chamado: ${numeroChamado}`);
+        }
+    </script>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            const numeroChamado = Math.floor(Math.random() * 100000) + 1;
+
+            document.getElementById("numeroChamado").innerText = `Chamado aberto! Número do chamado: ${numeroChamado}`;
+            document.getElementById("numeroChamado").style.color = getRandomColor();
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+
+</body>
+
+</html>
